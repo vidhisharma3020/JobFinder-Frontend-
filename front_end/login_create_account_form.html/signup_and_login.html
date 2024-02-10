@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup and Login</title>
+
+    <style>
+        body {
+            background-image: url("8.jpg");
+            background-size: cover;
+            background-position: center;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        body {
+
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            margin: 30px;
+
+            ;
+        }
+
+
+        .container {
+            margin: 20px;
+        }
+
+
+        .login-container {
+            align-self: top;
+            height: auto;
+            width: auto;
+            padding: 4px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            flex-direction: row;
+        }
+
+        .signup-container {
+            height: auto;
+            width: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form {
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="signup-container">
+            <h2>Signup Form</h2>
+            <form id="signupForm">
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="username" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="password" required>
+
+                <label for="first_name">FIRST NAME</label>
+                <input type="text" name="first_name" id="first_name" placeholder="first_name" required>
+
+                <label for="middle_name">MIDDLE NAME</label>
+                <input type="text" name="middle_name" id="middle_name" placeholder="middle_name">
+
+                <label for="last_name">LAST NAME</label>
+                <input type="text" name="last_name" id="last_name" placeholder="last_name" required>
+
+
+                <label for="contact">CONTACT</label>
+                <input type="tel" id="contact" placeholder="contact" required>
+
+
+                <label for="country">COUNTRY</label>
+                <input type="text" id="country" placeholder="country" required>
+
+
+                <label for="birth_date">DOB</label>
+                <input type="date" id="birth_date" placeholder="birth_date" required>
+
+
+                <label for="address">ADDRESS</label>
+                <input type="text" id="address" placeholder="address" required>
+
+                <label for="singleOption">Select gender</label>
+                <select id="singleOption" name="singleOption" required>
+                    <option value="option1">female</option>
+                    <option value="option2">male</option>
+                    <option value="option3">Other</option>
+                </select>
+
+                <label for="dropdownOption">Choose one or more options:</label>
+                <select id="dropdownOption" name="dropdownOption" multiple required>
+                    <option value="option1">web development</option>
+                    <option value="option2">app development</option>
+                    <option value="option3">cyber security</option>
+                    <option value="option4">deep learning</option>
+                    <option value="option5">data science</option>
+                    <option value="option6">AI/ML</option>
+                </select>
+
+                <label for="experience">previous experience, if not write null</label>
+                <input type="text" id="experience" placeholder="experience / if not write null" required>
+
+                <label for="github_id">enter githubid link</label>
+                <input type="text" id="github_id" placeholder="github_id" required>
+
+                <label for="linkedin_link">enter linkedin profile link</label>
+                <input type="text" id="linkedin_link" placeholder="linkedin_id" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="login-container">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="loginUsername">Username:</label>
+                <input type="text" id="loginUsername" name="loginUsername" required>
+
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" name="loginPassword" required>
+
+                <button type="submit"><a href="LANDING_PAGE.HTML">Login</a></button>
+                <br>
+                <br>
+            </form>
+
+            <div id="userInfo">
+                <!-- Display user information here after login -->
+                <button id="viewInfoBtn">View User Info</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const first_name = document.getElementById('first_name').value;
+            const middle_name = document.getElementById('middle_name').value;
+            const last_name = document.getElementById('last_name').value;
+            const contact = document.getElementById('contact').value;
+            const country = document.getElementById('country').value;
+            const birth_date = document.getElementById('birth_date').value;
+            const address = document.getElementById('address').value;
+            const singleOption = document.getElementById('singleOption').value;
+            const dropdownOptions = document.getElementById('dropdownOption').value;
+            const experience = document.getElementById('experience').value;
+            const github_id = document.getElementById('github_id').value;
+            const linkedin_link = document.getElementById('linkedin_link').value;
+
+            // Store user information in localStorage
+            const userData = {
+                username,
+                email,
+                password,
+                first_name,
+                middle_name,
+                last_name,
+                contact,
+                country,
+                birth_date,
+                address,
+                singleOption,
+                dropdownOptions,
+                experience,
+                github_id,
+                linkedin_link
+            };
+            localStorage.setItem('userData', JSON.stringify(userData));
+
+            // Redirect to login page or show a success message
+            alert('Account created successfully!');
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get login values
+            const loginUsername = document.getElementById('loginUsername').value;
+            const loginPassword = document.getElementById('loginPassword').value;
+
+            // Check if the user exists in localStorage
+            const userData = JSON.parse(localStorage.getItem('userData'));
+
+            if (userData && loginUsername === userData.username && loginPassword === userData.password) {
+                // Display the button to view user information
+                document.getElementById('userInfo').innerHTML = '<button id="viewInfoBtn">View User Info</button>';
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+
+        // Add event listener for the "View User Info" button
+        document.addEventListener('click', function (e) {
+            if (e.target && e.target.id === 'viewInfoBtn') {
+                // Redirect to the page where the user can see their information
+                window.location.href = 'profile.html';
+            }
+        });
+    </script>
+</body>
+
+</html>

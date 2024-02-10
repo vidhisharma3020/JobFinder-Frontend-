@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+
+    <style>
+        body {
+            background-image: url("8.jpg");
+            background-size: cover;
+            background-position: center;
+            font-weight: bold;
+            text-align: center;
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .profile-container {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="profile-container">
+        <h2>User Profile</h2>
+        <div id="userDetails"></div>
+    </div>
+
+    <script>
+        // Retrieve user information from localStorage
+        const userData = JSON.parse(localStorage.getItem('userData'));
+
+        if (userData) {
+            // Display user information in the profile page
+            const userDetailsContainer = document.getElementById('userDetails');
+            userDetailsContainer.innerHTML = `
+                <p><strong>Username:</strong> ${userData.username}</p>
+                <p><strong>Email:</strong> ${userData.email}</p>
+                <p><strong>Password:</strong> ${userData.password}</p>
+                <p><strong>first_name:</strong> ${userData.first_name}</p>
+                <p><strong>middle_name:</strong> ${userData.middle_name}</p>
+                <p><strong>last_name:</strong> ${userData.last_name}</p>
+                <p><strong>contact:</strong> ${userData.contact}</p>
+                <p><strong>country:</strong> ${userData.country}</p>
+                <p><strong>birth_date:</strong> ${userData.birth_date}</p>
+                <p><strong>address:</strong> ${userData.address}</p>
+                <p><strong>singleoption:</strong> ${userData.singleoption}</p>
+                <p><strong>experience:</strong> ${userData.experience}</p>
+                <p><strong>github_id:</strong> ${userData.github_id}</p>
+                <p><strong>linkedin_link:</strong> ${userData.linkedin_link}</p>
+
+
+
+                
+                
+                <!-- Add more fields as needed -->
+            `;
+        } else {
+            // Redirect to login page if user information is not found
+            alert('User information not found. Redirecting to login page.');
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+
+</html>
